@@ -24,8 +24,9 @@ def can_avoid_vertically(start, obstacle, drone_gps, obstacle_gps, waypoint_next
     eqA = drone_gps[1] - waypoint_next_gps[1]
     eqB = waypoint_next_gps[0] - drone_gps[0]
     eqC = (drone_gps[0] * waypoint_next_gps[1]) - (waypoint_next_gps[0] * drone_gps[1])
-    d = (math.fabs((eqA*drone_gps[0])+(eqB*drone_gps[1])+eqC))/sqrt((eqA*eqA)+(eqB*eqB))
-
+    #d = (math.fabs((eqA*drone_gps[0])+(eqB*drone_gps[1])+eqC))/sqrt((eqA*eqA)+(eqB*eqB))
+    #Distance between a point and a line
+    d = (math.fabs((eqA*obstacle_gps[0])+(eqB*obstacle_gps[1])+eqC))/sqrt((eqA*eqA)+(eqB*eqB))
 
 
     radius = obstacle[1] - obstacle[0]

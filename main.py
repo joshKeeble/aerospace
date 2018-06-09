@@ -15,8 +15,8 @@ class RRT():
     """
     Class for RRT Planning
     """
-
-    def __init__(self, start, goal, obstacleList, randArea, expandDis=.5, goalSampleRate=2000, maxIter=1500):
+    """if the rrt is using gps coords or gps coords set to feet then increase the expamd distance accordingly"""
+    def __init__(self, start, goal, obstacleList, randArea, expandDis=.5, goalSampleRate=50, maxIter=1500):
         """
         Setting Parameter
         start:Start Position [x,y]
@@ -42,7 +42,7 @@ class RRT():
         self.nodeList = [self.start]
         while True:
             # Random Sampling
-            if random.randint(0, 10000) > self.goalSampleRate:
+            if random.randint(0, 100) > self.goalSampleRate:
                 rnd = [random.uniform(self.minrand, self.maxrand), random.uniform(
                     self.minrand, self.maxrand)]
             else:
